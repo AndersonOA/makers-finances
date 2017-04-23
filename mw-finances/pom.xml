@@ -9,7 +9,7 @@
 	<packaging>war</packaging>
 
 	<name>mw-finances</name>
-	<description></description>
+	<description>Sistema de Controle de Gastos Financeiros Desenvolvido pela MakersWeb</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -65,6 +65,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
