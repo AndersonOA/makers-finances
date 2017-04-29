@@ -28,7 +28,7 @@ public class Autenticacao extends DefaultEntity implements Serializable {
 	private static final long serialVersionUID = -4340888315484734427L;
 
 	@NotEmpty
-	@Column(name = "password")
+	@Column(name = "password", length = 256)
 	@ColumnTransformer(write = "SHA2(?, 256)")
 	private String password;
 
