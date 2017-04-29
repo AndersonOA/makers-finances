@@ -13,21 +13,13 @@
 
 <div class="login">
 
-<div class="code">
-	<c:out value="${param.error}"></c:out>
-</div>
-
 	<div class="container login_container">
 	    <div class="login_box">
-	        <img class="login_logo" alt="[Makers Finances®]" title="Makers Finances®" src="../_cdn/vendors/img/helpeo_icon.png"/>
-	        <form class="login_form" name="work_login" action="${contextPath}/plain/login.html" method="post" enctype="multipart/form-data">
-	            <div class="callback_return m_botton"></div>
-	            <input type="hidden" name="callback" value="Login">
-	            <input type="hidden" name="callback_action" value="admin_login">
-	
+	        <img class="login_logo" alt="[Makers Finances®]" title="Makers Finances®" src="../_cdn/vendors/img/finances_icon.png"/>
+	        <form class="login_form ajax_off" name="work_login" action="login.html" method="post" enctype="multipart/form-data">
 	            <label class="label">
 	                <span class="legend">Seu E-mail:</span>
-	                <input type="email" name="username" value="" placeholder="E-mail:" required />
+	                <input type="email" name="login" value="" placeholder="E-mail:" required />
 	            </label>
 	
 	            <label class="label">
@@ -40,10 +32,10 @@
 	            </label>
 	
 	            <img class="form_load none" style="float: right; margin-top: 3px; margin-left: 10px;" alt="Enviando Requisição!" title="Enviando Requisição!" src="../_cdn/vendors/img/load.gif"/>
-	            <button class="btn btn_red fl_right">Entrar!</button>
+	            <button type="submit" class="btn btn_blue fl_right">Entrar!</button>
 	            <div class="clear"></div>
 	        </form>
-	        <p class="login_link"><a href="./">Makers Finances!</a> &nbsp;&nbsp;&nbsp; <a href="esqueceu-senha.html">Perdeu sua senha?</a></p>
+	        <p class="login_link"><a href="../">Makers Finances!</a> &nbsp;&nbsp;&nbsp; <a href="esqueceu-senha.html">Perdeu sua senha?</a></p>
 	    </div>
 	</div>
 	

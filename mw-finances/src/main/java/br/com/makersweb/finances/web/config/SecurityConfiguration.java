@@ -45,8 +45,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests().antMatchers("/resources/**", "/*/api/**", "/_cdn/**").permitAll()
-				.anyRequest().authenticated().and().formLogin().defaultSuccessUrl("/page/dashboard.html", true)
-				.loginPage("/plain/login.html").permitAll().and().logout().logoutUrl("/logout").permitAll();
+				.anyRequest().authenticated().and().formLogin().failureUrl("/plain/login.html?error=invalid_user")
+				.defaultSuccessUrl("/page/dashboard.html", true).usernameParameter("login")
+				.passwordParameter("password").loginPage("/plain/login.html").permitAll().and().logout()
+				.logoutUrl("/logout").permitAll();
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="dec"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html lang="pt-br">
 	<head>
 		<meta charset="UTF-8" />
@@ -9,6 +10,7 @@
 		<title><dec:title /></title>
 		<meta name="description" content="O Helpeo é um sistema!"/>
         <meta name="robots" content="index, follow"/>
+        <meta name="makers_api_version" content="<spring:message code="finances.api.version" />" />
 
         <link rel="shortcut icon" href="../_cdn/vendors/img/favicon.png" />
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
@@ -22,5 +24,8 @@
 	
 		<dec:body />
 		
+		<script src="../_cdn/vendors/js/jquery.js"></script>
+        <script src="../_cdn/vendors/js/makers-config.js"></script>
+        <script src="../_cdn/vendors/js/makers-control.js"></script>
 	</body>
 </html>
