@@ -47,7 +47,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 		.authorizeRequests()
-			.antMatchers("/plain/login.html").permitAll()
 			.antMatchers("/resources/**", "/*/api/**", "/_cdn/**").permitAll()
 			.anyRequest()
 			.authenticated().and().csrf().disable().formLogin()
@@ -59,22 +58,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 			.logoutSuccessUrl("/").and().exceptionHandling()
 			.accessDeniedPage("/access-denied");
-//		http
-//			.csrf().disable()
-//			.authorizeRequests()
-//			.antMatchers("/resources/**", "/*/api/**", "/_cdn/**").permitAll()
-//			.anyRequest().authenticated()
-//			.and()
-//			.formLogin()
-//			.loginPage("/plain/login.html").permitAll()
-//			.failureUrl("/plain/login.html?error=invalid_user")
-//			.defaultSuccessUrl("/page/dashboard.html")
-//			.usernameParameter("email")
-//			.passwordParameter("password")
-//			.and().logout()
-//			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//			.logoutSuccessUrl("/").and().exceptionHandling()
-//			.accessDeniedPage("/access-denied.html");
 	}
 
 	@Override
