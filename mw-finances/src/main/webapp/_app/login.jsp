@@ -16,10 +16,10 @@
 	<div class="container login_container">
 	    <div class="login_box">
 	        <img class="login_logo" alt="[Makers Finances®]" title="Makers Finances®" src="../_cdn/vendors/img/finances_icon.png"/>
-	        <form class="login_form ajax_off" name="work_login" action="login.html" method="post" enctype="multipart/form-data">
+	        <form class="login_form ajax_off" name="work_login" action="login.html" method="post">
 	            <label class="label">
 	                <span class="legend">Seu E-mail:</span>
-	                <input type="email" name="login" value="" placeholder="E-mail:" required />
+	                <input type="email" name="email" value="" placeholder="E-mail:" required />
 	            </label>
 	
 	            <label class="label">

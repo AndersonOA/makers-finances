@@ -16,6 +16,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
  *
@@ -44,11 +45,36 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests().antMatchers("/resources/**", "/*/api/**", "/_cdn/**").permitAll()
-				.anyRequest().authenticated().and().formLogin().failureUrl("/plain/login.html?error=invalid_user")
-				.defaultSuccessUrl("/page/dashboard.html", true).usernameParameter("login")
-				.passwordParameter("password").loginPage("/plain/login.html").permitAll().and().logout()
-				.logoutUrl("/logout").permitAll();
+		http
+		.authorizeRequests()
+			.antMatchers("/plain/login.html").permitAll()
+			.antMatchers("/resources/**", "/*/api/**", "/_cdn/**").permitAll()
+			.anyRequest()
+			.authenticated().and().csrf().disable().formLogin()
+			.loginPage("/plain/login.html").failureUrl("/plain/login.html?error=true")
+			.defaultSuccessUrl("/page/dashboard.html")
+			.usernameParameter("email")
+			.passwordParameter("password")
+			.and().logout()
+			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+			.logoutSuccessUrl("/").and().exceptionHandling()
+			.accessDeniedPage("/access-denied");
+//		http
+//			.csrf().disable()
+//			.authorizeRequests()
+//			.antMatchers("/resources/**", "/*/api/**", "/_cdn/**").permitAll()
+//			.anyRequest().authenticated()
+//			.and()
+//			.formLogin()
+//			.loginPage("/plain/login.html").permitAll()
+//			.failureUrl("/plain/login.html?error=invalid_user")
+//			.defaultSuccessUrl("/page/dashboard.html")
+//			.usernameParameter("email")
+//			.passwordParameter("password")
+//			.and().logout()
+//			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+//			.logoutSuccessUrl("/").and().exceptionHandling()
+//			.accessDeniedPage("/access-denied.html");
 	}
 
 	@Override
