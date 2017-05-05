@@ -3,7 +3,7 @@
 <title>Bem-vindo(a) ao Makers Finances® - Entrar!</title>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<c:if test="${param.error ==  'invalid_user'}">
+<c:if test="${param.error ==  true}">
 <div class="trigger_modal">
 	<div class="trigger trigger_ajax trigger_info" style="display: block;">
 		<b>OPPSSS:</b> E-mail ou Senha informado não é válido!<span class="ajax_close"></span>

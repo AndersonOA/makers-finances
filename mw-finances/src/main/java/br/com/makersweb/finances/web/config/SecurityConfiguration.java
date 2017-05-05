@@ -47,6 +47,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 		.authorizeRequests()
+			.antMatchers("/plain/login.html").permitAll()
 			.antMatchers("/resources/**", "/*/api/**", "/_cdn/**").permitAll()
 			.anyRequest()
 			.authenticated().and().csrf().disable().formLogin()
@@ -57,7 +58,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.and().logout()
 			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 			.logoutSuccessUrl("/").and().exceptionHandling()
-			.accessDeniedPage("/access-denied");
+			.accessDeniedPage("/access-denied.html");
 	}
 
 	@Override
